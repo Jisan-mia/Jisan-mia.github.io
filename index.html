@@ -49,6 +49,7 @@
       property="twitter:image"
       content="https://raw.githubusercontent.com/Jisan-mia/Jisan-mia.github.io/main/jisan-mia.png"
     />
+    <link rel="manifest" href="./site.webmanifest" />
     <style>
       * {
         margin: 0;
@@ -57,10 +58,10 @@
       }
       body {
         font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
-          'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-          'Noto Color Emoji';
-        background: #1e1f25 url(https://intspirit.com/noise-bg-1.a521e6f51635deb5.png);
+          "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+          "Noto Color Emoji";
+        background: #1e1f25 url("./noise-bg.png");
         color: white;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -96,13 +97,25 @@
         padding: 2rem;
         display: flex;
         flex-direction: column;
-        border: 1px solid rgba(255, 255, 255, 0.05);
         transition: all 150ms linear;
         background-color: rgba(255, 255, 255, 0);
       }
 
       .links a:hover {
         background-color: rgb(255 255 255 / 1%);
+      }
+
+      .border_top {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .border_bottom {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .border_left {
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .border_right {
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
       }
 
       .links .tag {
@@ -163,7 +176,11 @@
       </section>
 
       <section class="links">
-        <a target="_blank" href="https://github.com/Jisan-mia">
+        <a
+          class="border_left border_right border_top border_bottom"
+          target="_blank"
+          href="https://github.com/Jisan-mia"
+        >
           <span class="tag"> link </span>
           <span class="name"> Github </span>
           <p class="desc">
@@ -172,23 +189,41 @@
             contributions.
           </p>
         </a>
-        <a target="_blank" href="https://twitter.com/JisanMia4">
+        <a
+          class="border_right border_top border_bottom"
+          target="_blank"
+          href="https://twitter.com/JisanMia4"
+        >
           <span class="tag"> link </span>
           <span class="name"> Twitter </span>
           <p class="desc">I share tech projects and resources on twitter.</p>
         </a>
-        <a target="_blank" href="https://linkedin.com/in/jisan-mia">
+        <a
+          class="border_right border_top border_bottom"
+          target="_blank"
+          href="https://linkedin.com/in/jisan-mia"
+        >
           <span class="tag"> link </span>
           <span class="name"> LinkedIn </span>
-          <p class="desc">Learning and building network with industry professionals.</p>
+          <p class="desc">
+            Learning and building network with industry professionals.
+          </p>
         </a>
-        <a target="_blank" href="https://www.instagram.com/jisan.mia4/">
+        <a
+          class="border_right border_top border_bottom"
+          target="_blank"
+          href="https://www.instagram.com/jisan.mia4/"
+        >
           <span class="tag"> link </span>
           <span class="name"> Instagram </span>
           <p class="desc">Sharing fun stuffs</p>
         </a>
       </section>
     </main>
-    <script defer data-domain="jisan-mia.github.io" src="https://plausible.io/js/script.js"></script>
+    <script
+      defer
+      data-domain="jisan-mia.github.io"
+      src="https://plausible.io/js/script.js"
+    ></script>
   </body>
 </html>
