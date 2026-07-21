@@ -105,7 +105,8 @@
         text-decoration: inherit;
       }
 
-      .links a {
+      .links a,
+      .links .email-card {
         padding: 2rem;
         display: flex;
         flex-direction: column;
@@ -115,8 +116,52 @@
         margin: -0.5px;
       }
 
-      .links a:hover {
+      .links a:hover,
+      .links .email-card:hover {
         background-color: rgb(255 255 255 / 1%);
+      }
+
+      .email-display {
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+        color: rgb(229 229 229);
+      }
+
+      .email-actions {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 0.75rem;
+      }
+
+      .email-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.8rem;
+        color: rgb(143 143 143);
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: inherit;
+        transition: color 150ms linear;
+        text-decoration: none;
+      }
+
+      .email-btn:hover {
+        color: rgb(229 229 229);
+      }
+
+      .copy-feedback {
+        margin-top: 0.4rem;
+        font-size: 0.75rem;
+        color: rgb(21 214 92);
+        min-height: 1rem;
+        visibility: hidden;
+      }
+
+      .copy-feedback.show {
+        visibility: visible;
       }
 
       .border_top {
@@ -250,6 +295,38 @@
           <span class="name"> Medium </span>
           <p class="desc">I publish in-depth articles and tutorials about web development on Medium.</p>
         </a>
+        <div class="email-card border_right border_top border_bottom">
+          <span class="tag"> contact </span>
+          <span class="name"> Email </span>
+          <p class="desc">Have a question or want to work together? Drop me an email.</p>
+          <span class="email-display" id="email-text">hi@jisan.io</span>
+          <div class="email-actions">
+            <a class="email-btn" href="mailto:hi@jisan.io">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Send email
+            </a>
+            <button class="email-btn" onclick="copyEmail()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy
+            </button>
+          </div>
+          <span class="copy-feedback" id="copy-feedback">✓ Copied to clipboard</span>
+        </div>
+        <a
+          class="border_right border_top border_bottom"
+          target="_blank"
+          href="#"
+        >
+          <span class="tag"> resume </span>
+          <span class="name"> Resume </span>
+          <p class="desc">View or download my resume to learn more about my experience, skills, and background.</p>
+        </a>
       </section>
     </main>
     <script
@@ -257,5 +334,15 @@
       data-domain="jisan-mia.github.io"
       src="https://plausible.io/js/script.js"
     ></script>
+    <script>
+      function copyEmail() {
+        var email = document.getElementById('email-text').textContent;
+        navigator.clipboard.writeText(email).then(function () {
+          var feedback = document.getElementById('copy-feedback');
+          feedback.classList.add('show');
+          setTimeout(function () { feedback.classList.remove('show'); }, 2000);
+        });
+      }
+    </script>
   </body>
 </html>
